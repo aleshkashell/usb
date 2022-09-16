@@ -1012,7 +1012,7 @@ int HID_API_EXPORT hid_write(hid_device *dev, const unsigned char *data, size_t 
 		res = libusb_control_transfer(dev->device_handle,
 			LIBUSB_REQUEST_TYPE_CLASS|LIBUSB_RECIPIENT_INTERFACE|LIBUSB_ENDPOINT_OUT,
 			0x09/*HID Set_Report*/,
-			(2/*HID output*/ << 8) | report_number,
+			(3/*HID output*/ << 8) | report_number,
 			dev->interface,
 			(unsigned char *)data, length,
 			1000/*timeout millis*/);
